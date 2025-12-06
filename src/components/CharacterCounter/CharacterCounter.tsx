@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import type { CharacterCounterProps } from "../../types";
 import { TextInput } from "../TextInput/TextInput";
+import { StatsDisplay } from "../StatsDisplay/StatsDisplay";
 
 
 export const CharacterCounter: React.FC<CharacterCounterProps> = ({
@@ -21,6 +22,12 @@ export const CharacterCounter: React.FC<CharacterCounterProps> = ({
     setWordCount(words);
   };
 
+  const stats = {
+    characterCount: text.length,
+    wordCount: wordCount,
+    readingTime: wordCount / 200, // assuming 200 WPM
+  }
+
   return (
     <div className="flex flex-col gap-4">
     
@@ -29,8 +36,8 @@ export const CharacterCounter: React.FC<CharacterCounterProps> = ({
       onTextChange={handleTextChange}
       placeholder="Start typing..."
       />
-        {/* TEMPORARY until StatsDisplay exists */}
-        <p>Word Count: {wordCount}</p>
+      
+      <StatsDisplay stats={stats} showReadingTime={true} />
 
         {/* Displays Min, Max and Targeted Reading Stats */}
         Min: {minWords} | Max: {maxWords} | Targeted Reading Time: {targetReadingTime} minutes
