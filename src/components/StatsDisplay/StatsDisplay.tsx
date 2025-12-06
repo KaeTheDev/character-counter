@@ -15,7 +15,13 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
 
         <div className="flex flex-col items-center">
           <p className="text-sm text-gray-500">Words</p>
-          <span className="text-lg font-bold">{stats.wordCount}</span>
+          <span
+            className={`text-lg font-bold ${
+              stats.wordCount < 25 ? "text-red-500" : "text-green-500"
+            }`}
+          >
+            {stats.wordCount}
+          </span>
         </div>
 
         {showReadingTime && (
