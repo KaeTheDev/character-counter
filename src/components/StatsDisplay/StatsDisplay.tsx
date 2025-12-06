@@ -4,7 +4,16 @@ import type { StatsDisplayProps } from "../../types";
 export const StatsDisplay: React.FC<StatsDisplayProps> = ({
   stats,
   showReadingTime,
+  minWords = 0,
+  maxWords = Infinity,
 }) => {
+  
+    // Determine color dynamically
+    const wordColor =
+    stats.wordCount < minWords || stats.wordCount > maxWords
+      ? "text-red-500"
+      : "text-green-500";
+
   return (
     <>
       <div className="flex gap-6">
@@ -16,9 +25,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
         <div className="flex flex-col items-center">
           <p className="text-sm text-gray-500">Words</p>
           <span
-            className={`text-lg font-bold ${
-              stats.wordCount < 25 ? "text-red-500" : "text-green-500"
-            }`}
+            className={`text-lg font-bold ${wordColor}`}
           >
             {stats.wordCount}
           </span>

@@ -37,7 +37,7 @@ export const CharacterCounter: React.FC<CharacterCounterProps> = ({
       placeholder="Start typing..."
       />
       
-      <StatsDisplay stats={stats} showReadingTime={true} />
+      <StatsDisplay stats={stats} showReadingTime={true} minWords={minWords} maxWords={maxWords}/>
 
         {/* Displays Min, Max and Targeted Reading Stats */}
         <div className="flex items-center gap-4">
