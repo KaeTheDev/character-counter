@@ -40,7 +40,13 @@ export const CharacterCounter: React.FC<CharacterCounterProps> = ({
       <StatsDisplay stats={stats} showReadingTime={true} />
 
         {/* Displays Min, Max and Targeted Reading Stats */}
-        Min: {minWords} | Max: {maxWords} | Targeted Reading Time: {targetReadingTime} minutes
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-gray-500">Min: {minWords}</span>
+          <span>|</span>
+          <span className="text-sm text-gray-500">Max: {maxWords}</span>
+          <span>|</span>
+          <span className="text-sm text-gray-500">Targeted Reading Time: {targetReadingTime} minutes</span>
+        </div>
 
     </div>
   );
