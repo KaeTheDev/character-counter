@@ -3,7 +3,7 @@ function App() {
 
   return (
     <>
-      <p>KaeTheDev was here!</p>
+      <p className="text-2xl text-blue-500">KaeTheDev was here!</p>
     </>
   )
 }
